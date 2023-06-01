@@ -1,0 +1,18 @@
+.HeroSlider-section ul.slick-dots {
+  bottom: 10px;
+  z-index: 9;
+}
+
+.HeroSlider-section .slick-dots li button:before {
+  color: #f9a51a;
+  content: "";
+  background: #f9a51a;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.HeroSlider-section .slick-dots li.slick-active button:before {
+  transform: scale(1.5);
+}

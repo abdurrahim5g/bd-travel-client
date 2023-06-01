@@ -1,8 +1,10 @@
 import "./InnerHero.css";
-import bg from "../../assets/images/hero/hero-1.jpg";
 
 // eslint-disable-next-line react/prop-types
 const InnerHero = ({ children, img }) => {
+  const bg =
+    "https://modtel.travelerwp.com/wp-content/uploads/2022/04/banner-search-form-min.png";
+
   return (
     <section
       className="inner-hero-section"

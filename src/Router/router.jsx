@@ -18,6 +18,8 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+        loader: () =>
+          fetch("https://bd-travel-server-f-rahim.vercel.app/places/"),
       },
       {
         path: "/booking",

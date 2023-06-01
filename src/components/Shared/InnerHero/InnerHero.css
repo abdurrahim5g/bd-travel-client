@@ -1,11 +1,11 @@
 .inner-hero-section {
-  padding: 180px 0 100px;
+  padding: 120px 0 80px;
   text-align: center;
   position: relative;
   z-index: 1;
 }
 .inner-hero-section::before {
-  content: "";
+  /* content: ""; */
   position: absolute;
   width: 100%;
   height: 100%;
@@ -19,6 +19,7 @@
 .inner-hero-section h2 {
   font-size: 70px;
   color: #fff;
+  font-weight: 700;
 }
 
 /* Responsive styles 

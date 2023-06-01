@@ -1,0 +1,19 @@
+:root {
+  --primaryColor: #f9a51a;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  line-height: 1.3 !important;
+}
+
+body,
+p,
+article {
+  line-height: 1.7 !important;
+}
