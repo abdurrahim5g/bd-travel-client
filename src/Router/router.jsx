@@ -6,6 +6,9 @@ import HotelBooking from "../Pages/HotalBooking/HotelBooking";
 import SignIn from "../Pages/SignIn/SignIn";
 import SignUp from "../Pages/SignUp/SignUp";
 import NotFound from "../Pages/NotFound/NotFound";
+import Destination from "../Pages/Destination/Destination";
+import Contact from "../Pages/Contact/Contact";
+import Blogs from "../Pages/Blogs/Blogs";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +22,18 @@ const router = createBrowserRouter([
       {
         path: "/booking",
         element: <Booking></Booking>,
+      },
+      {
+        path: "/destination",
+        element: <Destination></Destination>,
+      },
+      {
+        path: "/contact",
+        element: <Contact></Contact>,
+      },
+      {
+        path: "/blogs",
+        element: <Blogs></Blogs>,
       },
       {
         path: "/hotel-booking",
