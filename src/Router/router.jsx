@@ -30,6 +30,10 @@ const router = createBrowserRouter([
         element: <Destination></Destination>,
       },
       {
+        path: "/destination/:id",
+        element: <Destination></Destination>,
+      },
+      {
         path: "/contact",
         element: <Contact></Contact>,
       },

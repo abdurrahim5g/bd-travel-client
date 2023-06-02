@@ -1,6 +1,8 @@
 :root {
   --primaryColor: #f9a51a;
   --bgColor: #eef9fb;
+  --textColor: #222;
+  --headingColor: #000;
 }
 
 .bgColor {
@@ -15,10 +17,17 @@ h5,
 h6 {
   font-weight: 700;
   line-height: 1.3 !important;
+  color: var(--headingColor);
 }
 
 body,
 p,
 article {
   line-height: 1.7 !important;
+  color: var(--textColor);
+}
+
+.heading {
+  font-weight: 700;
+  color: var(--headingColor);
 }
