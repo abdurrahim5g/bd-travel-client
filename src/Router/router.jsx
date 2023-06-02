@@ -10,6 +10,13 @@ import Destination from "../Pages/Destination/Destination";
 import Contact from "../Pages/Contact/Contact";
 import Blogs from "../Pages/Blogs/Blogs";
 
+const loadPlaces = () =>
+  fetch("https://bd-travel-server-f-rahim.vercel.app/places/");
+
+const loadSinglePlace = (id) => {
+  return fetch(`https://bd-travel-server-f-rahim.vercel.app/place/${id}`);
+};
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -18,16 +25,21 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () =>
-          fetch("https://bd-travel-server-f-rahim.vercel.app/places/"),
+        loader: loadPlaces,
       },
       {
         path: "/booking",
         element: <Booking></Booking>,
       },
       {
+        path: "/booking/:id",
+        element: <Booking></Booking>,
+        loader: ({ params }) => loadSinglePlace(params.id),
+      },
+      {
         path: "/destination",
         element: <Destination></Destination>,
+        loader: loadPlaces,
       },
       {
         path: "/destination/:id",
