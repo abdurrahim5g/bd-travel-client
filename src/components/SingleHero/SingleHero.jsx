@@ -26,7 +26,7 @@ const SingleHero = ({ place, booking = false }) => {
             {/* <h3 className="text-4xl mt-3 mb-5">District: {area}</h3> */}
             <p className="text-xl text-white mb-8 w-3/4">{description}</p>
             {!booking && (
-              <Link to={`/distination/${id}`} className="hero-btn">
+              <Link to={`/booking/${id}`} className="hero-btn">
                 Visit to {name}
               </Link>
             )}
