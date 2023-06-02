@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap");
+
+.section-heading-component {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-heading-component .title {
+  font-size: 30px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+.section-heading-component .sub-title {
+  font-family: "Dancing Script", cursive;
+  font-size: 30px;
+  text-transform: capitalize;
+}

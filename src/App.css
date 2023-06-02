@@ -1,5 +1,10 @@
 :root {
   --primaryColor: #f9a51a;
+  --bgColor: #eef9fb;
+}
+
+.bgColor {
+  background: var(--bgColor);
 }
 
 h1,
