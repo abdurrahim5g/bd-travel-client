@@ -1,6 +1,5 @@
 import "./InnerHero.css";
 
-// eslint-disable-next-line react/prop-types
 const InnerHero = ({ children, img, subHeading }) => {
   const bg =
     "https://modtel.travelerwp.com/wp-content/uploads/2022/04/banner-search-form-min.png";
