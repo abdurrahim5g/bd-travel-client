@@ -1,28 +1,55 @@
-import { Link } from "react-router-dom";
 import "./BookingForm.css";
 
-const BookingForm = () => {
+const BookingForm = ({ destination }) => {
+  // handleBooking
+  const handleBooking = (event) => {
+    event.preventDefault();
+
+    const form = event.target;
+    const origin = form.origin.value;
+    const destination = form.destination.value;
+    const from = form.fromDate.value;
+    const to = form.toDate.value;
+
+    if (origin && destination && from && to) {
+      const bookingDetails = {
+        origin,
+        destination,
+        from,
+        to,
+      };
+      localStorage.setItem("bookingDetails", JSON.stringify(bookingDetails));
+    }
+    console.log(origin, destination, from, to);
+  };
+
   return (
     <div className="booking-area bg-white rounded-lg shadow-2xl p-6 w-full">
-      <form action="#">
+      <form action="#" onSubmit={handleBooking}>
         <div className="form-control w-full ">
           <label className="label">
-            <span className="label-text text-xl">Origin</span>
+            <span className="label-text text-lg font-semibold">Origin</span>
           </label>
           <input
+            name="origin"
             type="text"
             placeholder="Your location"
             className="input input-bordered w-full "
           />
         </div>
 
-        <div className="form-control w-full ">
+        <div className="form-control w-full my-4">
           <label className="label">
-            <span className="label-text text-xl">Destination</span>
+            <span className="label-text text-lg font-semibold">
+              Destination
+            </span>
           </label>
           <input
+            name="destination"
             type="text"
             placeholder="Your Destination"
+            value={destination && destination}
+            readOnly
             className="input input-bordered w-full "
           />
         </div>
@@ -30,9 +57,10 @@ const BookingForm = () => {
         <div className="grid grid-cols-2 gap-4">
           <div className="form-control w-full ">
             <label className="label">
-              <span className="label-text text-xl">From</span>
+              <span className="label-text text-lg font-semibold">From</span>
             </label>
             <input
+              name="fromDate"
               type="date"
               placeholder="Your Destination"
               className="input input-bordered w-full "
@@ -40,20 +68,20 @@ const BookingForm = () => {
           </div>
           <div className="form-control w-full ">
             <label className="label">
-              <span className="label-text text-xl">To</span>
+              <span className="label-text text-lg font-semibold">To</span>
             </label>
             <input
+              name="toDate"
               type="date"
-              placeholder="Your Destination"
               className="input input-bordered w-full "
             />
           </div>
         </div>
 
         <div className="w-full mt-6"></div>
-        <Link to={`/distination/`} className="hero-btn w-full text-center">
+        <button to={`/distination/`} className="hero-btn w-full text-center">
           Start Booking
-        </Link>
+        </button>
       </form>
     </div>
   );

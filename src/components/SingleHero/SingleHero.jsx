@@ -39,7 +39,7 @@ const SingleHero = ({ place, booking = false }) => {
                 className="rounded-lg shadow-2xl border-8 "
               />
             ) : (
-              <BookingForm></BookingForm>
+              <BookingForm destination={name}></BookingForm>
             )}
           </div>
         </div>
