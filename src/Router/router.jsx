@@ -11,6 +11,7 @@ import Contact from "../Pages/Contact/Contact";
 import Blogs from "../Pages/Blogs/Blogs";
 import Protected from "./Protected";
 import BookingConfirm from "../Pages/BookingConfirm/BookingConfirm";
+import SingleBlog from "../components/SingleBlog/SingleBlog";
 
 const loadPlaces = () =>
   fetch("https://bd-travel-server-f-rahim.vercel.app/places/");
@@ -18,6 +19,14 @@ const loadPlaces = () =>
 const loadSinglePlace = (id) => {
   return fetch(`https://bd-travel-server-f-rahim.vercel.app/place/${id}`);
 };
+
+// load blogs
+const loadBlogs = () =>
+  fetch(`https://bd-travel-server-f-rahim.vercel.app/blogs/`);
+
+// load singleBlog
+const loadSingleBlog = (id) =>
+  fetch(`https://bd-travel-server-f-rahim.vercel.app/blogs/${id}`);
 
 const router = createBrowserRouter([
   {
@@ -62,6 +71,12 @@ const router = createBrowserRouter([
       {
         path: "/blogs",
         element: <Blogs></Blogs>,
+        loader: loadBlogs,
+      },
+      {
+        path: "/blogs/:id",
+        element: <SingleBlog single={true}></SingleBlog>,
+        loader: ({ params }) => loadSingleBlog(params.id),
       },
       {
         path: "/hotel-booking",
