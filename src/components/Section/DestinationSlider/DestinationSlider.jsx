@@ -54,12 +54,12 @@ const DestinationSlider = () => {
                 key={place.id}
               >
                 <div className="img-box shadow-lg">
-                  <Link to={"/"}>
+                  <Link to={`/booking/${place.id}`}>
                     <img src={place.image_url} alt="" />
                   </Link>
                 </div>
                 <Link
-                  to={`/destination/${place.id}`}
+                  to={`/booking/${place.id}`}
                   className="block text-xl heading mt-3 mb-1"
                 >
                   {place.name}
