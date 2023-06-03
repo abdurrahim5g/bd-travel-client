@@ -9,7 +9,7 @@ import { toast } from "react-hot-toast";
 
 const SignUp = () => {
   const [error, setError] = useState();
-  const { providerLogin } = useAuthContex();
+  const { providerLogin, createUser, updateUser } = useAuthContex();
   const googleProvider = new GoogleAuthProvider();
   const facebookProvider = new FacebookAuthProvider();
 
@@ -22,10 +22,28 @@ const SignUp = () => {
     event.preventDefault();
 
     const form = event.target;
+    const name = form.name.value;
     const email = form.email.value;
+    const photo_url = form.photo_url.value;
     const password = form.password.value;
 
-    console.log(email, password);
+    if (email && password) {
+      createUser(email, password)
+        .then(() => {
+          setError();
+          // console.log(result.user);
+          updateUser({ displayName: name, photoURL: photo_url });
+          navigate(from, { replace: true });
+        })
+        .catch((err) => {
+          setError(err.code);
+          toast.error(err.code);
+        });
+    } else {
+      setError("Something is wrong. Please try Again");
+      toast.error("Something is wrong. Please try Again");
+    }
+    console.log(email, password, name, photo_url);
   };
 
   // login with Provider logins
