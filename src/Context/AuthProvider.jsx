@@ -3,6 +3,7 @@ import {
   createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
+  signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
   updateProfile,
@@ -18,6 +19,11 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const auth = getAuth(app);
+
+  // signIn with email & password
+  const userSignIn = (email, password) => {
+    return signInWithEmailAndPassword(auth, email, password);
+  };
 
   // providerLogin
   const providerLogin = (provider) => {
@@ -56,6 +62,7 @@ const AuthProvider = ({ children }) => {
     user,
     loading,
     auth,
+    userSignIn,
     providerLogin,
     createUser,
     updateUser,

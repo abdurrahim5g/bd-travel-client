@@ -9,8 +9,10 @@ import { toast } from "react-hot-toast";
 
 const SignIn = () => {
   const [error, setError] = useState(true);
+  // use AuthContex
+  const { providerLogin, userSignIn } = useAuthContex();
 
-  const { providerLogin } = useAuthContex();
+  // logins providers
   const googleProvider = new GoogleAuthProvider();
   const facebookProvider = new FacebookAuthProvider();
 
@@ -26,6 +28,21 @@ const SignIn = () => {
     const email = form.email.value;
     const password = form.password.value;
 
+    if (email && password) {
+      userSignIn(email, password)
+        .then((result) => {
+          console.log(result.user);
+          setError();
+          navigate(from, { replace: true });
+        })
+        .catch((err) => {
+          setError(err.code);
+        });
+    } else {
+      setError(
+        "May your email or password is worng. Please corrent email & password"
+      );
+    }
     console.log(email, password);
   };
 
