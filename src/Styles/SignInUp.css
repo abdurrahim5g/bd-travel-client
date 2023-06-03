@@ -1,0 +1,86 @@
+.login-reg-container {
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+}
+
+.form-content {
+  width: 450px;
+}
+
+.form-content h3 {
+  line-height: 1.5 !important;
+}
+
+.form-content .single-input {
+  margin: 20px 0;
+}
+
+.form-content .single-input input {
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+  padding: 8px 0;
+}
+
+.form-content a {
+  color: var(--primaryColor);
+  text-decoration: underline;
+}
+
+.form-content .submit-button button {
+  background: var(--primaryColor);
+  display: block;
+  width: 100%;
+  padding: 8px;
+  font-weight: 600;
+  margin: 20px 0;
+  border-radius: 4px;
+}
+
+.form-content .notice p {
+  font-size: 14px;
+  text-align: center;
+}
+
+.others-login-options {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.others-login-options .provider-logins {
+  display: grid;
+  gap: 20px;
+}
+
+.others-login-options .provider-logins button {
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ccc;
+  border-radius: 40px;
+  padding: 10px;
+  gap: 20px;
+  position: relative;
+  transition: 0.3s;
+}
+
+.others-login-options .provider-logins button img {
+  position: absolute;
+  left: 5px;
+}
+
+.others-login-options .provider-logins button:hover {
+  border-color: var(--primaryColor);
+  color: var(--primaryColor);
+}
+
+/* Responsive styles
+===================== */
+@media all and (max-width: 767px) {
+  .form-content {
+    width: 100%;
+  }
+}
