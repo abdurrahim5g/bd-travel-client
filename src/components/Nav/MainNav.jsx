@@ -9,9 +9,7 @@ const MainNav = () => {
       <li>
         <NavLink to="/destination">Destination</NavLink>
       </li>
-      <li>
-        <NavLink to="/hotels">Hotels</NavLink>
-      </li>
+
       <li>
         <NavLink to="/blogs">Blogs</NavLink>
       </li>
