@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import logo from "../../../assets/images/logos/logo-black.svg";
 import MainNav from "../../Nav/MainNav";
+import { useAuthContex } from "../../../Context/AuthProvider";
 
 const Header = () => {
+  const { user, userLogOut } = useAuthContex();
   return (
     <div className="Header-component">
       <div className="navbar bg-base-100">
@@ -42,19 +44,22 @@ const Header = () => {
         </div>
         <div className="navbar-end">
           <ul className="flex gap-3">
-            <li>
-              <Link to="/signin" className="btn btn-primary">
-                Login
-              </Link>
-            </li>
-            <li>
-              <Link to="/signup" className="btn btn-primary">
-                Sign Up
-              </Link>
-            </li>
-            <li>
-              <button className="btn btn-outline btn-warning">Log Out</button>
-            </li>
+            {!user?.uid ? (
+              <li>
+                <Link to="/signin" className="btn btn-primary">
+                  Login
+                </Link>
+              </li>
+            ) : (
+              <li>
+                <button
+                  className="btn btn-outline btn-warning"
+                  onClick={() => userLogOut()}
+                >
+                  Log Out
+                </button>
+              </li>
+            )}
           </ul>
         </div>
       </div>

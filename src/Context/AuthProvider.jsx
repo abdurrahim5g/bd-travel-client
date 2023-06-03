@@ -4,9 +4,11 @@ import {
   getAuth,
   onAuthStateChanged,
   signInWithPopup,
+  signOut,
   updateProfile,
 } from "firebase/auth";
 import app from "../Firebase/firebase.config";
+import { toast } from "react-hot-toast";
 
 const AuthContex = createContext();
 // eslint-disable-next-line react-refresh/only-export-components, react-hooks/rules-of-hooks
@@ -32,6 +34,13 @@ const AuthProvider = ({ children }) => {
     return updateProfile(auth.currentUser, { ...userInfo });
   };
 
+  // user signOut/logOut
+  const userLogOut = () => {
+    return signOut(auth)
+      .then(() => toast.success("Sign Out successfully"))
+      .catch((err) => toast.error(err.code));
+  };
+
   useEffect(() => {
     // cleanup function
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -50,6 +59,7 @@ const AuthProvider = ({ children }) => {
     providerLogin,
     createUser,
     updateUser,
+    userLogOut,
   };
   return <AuthContex.Provider value={authInfo}>{children}</AuthContex.Provider>;
 };
