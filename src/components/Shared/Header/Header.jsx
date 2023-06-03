@@ -2,8 +2,10 @@ import { Link } from "react-router-dom";
 import logo from "../../../assets/images/logos/logo-black.svg";
 import MainNav from "../../Nav/MainNav";
 import { useAuthContex } from "../../../Context/AuthProvider";
+import { useState } from "react";
 
 const Header = () => {
+  const [showLogout, setShowLogout] = useState(false);
   const { user, userLogOut } = useAuthContex();
   return (
     <div className="Header-component">
@@ -51,13 +53,28 @@ const Header = () => {
                 </Link>
               </li>
             ) : (
-              <li>
-                <button
-                  className="btn btn-outline btn-warning"
-                  onClick={() => userLogOut()}
-                >
-                  Log Out
-                </button>
+              <li className="user-informations relative">
+                <div className="user-img">
+                  <button
+                    className=" flex items-center"
+                    onClick={() => setShowLogout(!showLogout)}
+                  >
+                    <img
+                      src={user?.photoURL}
+                      alt={user?.displayName}
+                      className="w-10 rounded-full aspect-square object-cover mr-3"
+                    />
+                    <h3>{user?.displayName}</h3>
+                  </button>
+                </div>
+                {showLogout && (
+                  <button
+                    className="btn btn- btn-warning absolute z-10 right-0 top-14 w-28"
+                    onClick={() => userLogOut()}
+                  >
+                    Log Out
+                  </button>
+                )}
               </li>
             )}
           </ul>
