@@ -1,6 +1,10 @@
+import { toast } from "react-hot-toast";
 import "./BookingForm.css";
+import { useNavigate } from "react-router-dom";
 
-const BookingForm = ({ destination }) => {
+const BookingForm = ({ destination, id }) => {
+  const navigate = useNavigate();
+
   // handleBooking
   const handleBooking = (event) => {
     event.preventDefault();
@@ -17,8 +21,14 @@ const BookingForm = ({ destination }) => {
         destination,
         from,
         to,
+        id,
       };
       localStorage.setItem("bookingDetails", JSON.stringify(bookingDetails));
+      navigate("/booking/confirm");
+    } else {
+      toast.error(
+        "Please provide all information & then hit the Start booking"
+      );
     }
     console.log(origin, destination, from, to);
   };

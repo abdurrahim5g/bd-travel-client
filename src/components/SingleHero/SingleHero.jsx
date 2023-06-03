@@ -8,6 +8,9 @@ const SingleHero = ({ place, booking = false }) => {
   // eslint-disable-next-line react/prop-types
   const { name, description, image_url, id } = place;
 
+  const isBooking = JSON.parse(localStorage.getItem("bookingDetails"));
+  console.log(isBooking);
+
   return (
     <div
       className="single-hero-component grid place-content-center"
@@ -38,8 +41,12 @@ const SingleHero = ({ place, booking = false }) => {
                 alt={name}
                 className="rounded-lg shadow-2xl border-8 "
               />
+            ) : isBooking?.id !== id ? (
+              <BookingForm destination={name} id={id}></BookingForm>
             ) : (
-              <BookingForm destination={name}></BookingForm>
+              <h3 className="text-center text-green-500  p-10 bg-white rounded-2xl text-4xl">
+                You are already booked this
+              </h3>
             )}
           </div>
         </div>

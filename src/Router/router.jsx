@@ -9,6 +9,8 @@ import NotFound from "../Pages/NotFound/NotFound";
 import Destination from "../Pages/Destination/Destination";
 import Contact from "../Pages/Contact/Contact";
 import Blogs from "../Pages/Blogs/Blogs";
+import Protected from "./Protected";
+import BookingConfirm from "../Pages/BookingConfirm/BookingConfirm";
 
 const loadPlaces = () =>
   fetch("https://bd-travel-server-f-rahim.vercel.app/places/");
@@ -35,6 +37,14 @@ const router = createBrowserRouter([
         path: "/booking/:id",
         element: <Booking></Booking>,
         loader: ({ params }) => loadSinglePlace(params.id),
+      },
+      {
+        path: "/booking/confirm",
+        element: (
+          <Protected>
+            <BookingConfirm></BookingConfirm>
+          </Protected>
+        ),
       },
       {
         path: "/destination",
